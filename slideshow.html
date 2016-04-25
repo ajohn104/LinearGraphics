@@ -87,17 +87,6 @@
         <section>
           <h2>How Does This Relate?</h2>
           <ul>
-            <li>Almost all computers display on a two dimensional screen.</li>
-            <li>For 3D graphics, this means we need to project a 3D scene onto a "viewport."</li>
-            <li>The viewport is the "window" in which the scene is rendered to appear from.</li>
-            <li>Usually part (or all) of the monitor being displayed, but can be larger</li>
-            <li>We use projection to turn a three dimensional scene into a two dimensional image that is easy for us to display</li>
-          </ul>
-        </section>
-
-        <section>
-          <h2>How Does This Relate?</h2>
-          <ul>
             <li>The scene (and in some cases, the viewport) can utilize transformations to modify the scenes. Examples include:
               <ul>
                 <li>Scaling</li>
@@ -109,13 +98,55 @@
         <section>
           <h2>Matrix</h2>
           <ul>
-            <li>We use a four dimensional matrix
+            <li>We use a four dimensional matrix to apply the transformations to a 3D space</li>
+            <li>This is handled internally by the computer program to modify the scene that has been constructed using triangular polygons (outside the scope of this presentation)</li>
+            <li>For now, just take for granted we have some scene to work with.</li>
+            <li>We start with the identity matrix $I_4= \left[\begin{matrix}1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1 \end{matrix}\right]$</li>
+          </ul>
         </section>
+
         <section>
           <h2>Scaling</h2>
           <ul>
-            <li>If we want to have a plain scale, we can just multiply the underlying matrix by the scaling factor</li>
+            <li>Scaling can be done by multiplying a scaling vector with the identity matrix. We have that $S=\left[\begin{matrix}cx \\ cy \\ cz \\ 1\end{matrix}\right]$.</li>
+            <li>In the scene to the left each $c$ vector has a 0.75 scale.</li>
             <li>We can also scale each axis separately.</li>
+            <li>Try using the matrix $\left[\begin{matrix}5 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 0.5 & 0 \\ 0 & 0 & 0 & 1\end{matrix}\right]$</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Translation</h2>
+          <ul>
+            <li>Translations are also rather simple, we just multiply the following matrix to our identity matrix: $\left[\begin{matrix}1 & 0 & 0 & 0 \\ 0 & 1 & 0 & 0 \\ 0 & 0 & 1 & 0 \\ x_0 & y_0 & z_0 & 1\end{matrix}\right]$</li>
+            <li>We do need a 4x4 matrix to represent them properly though.</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Rotation</h2>
+          <ul>
+            <li>Rotation is the most complicated operation after projection.</li>
+            <li>We use the matrix $\left[\begin{matrix}cos \theta & -sin \theta & 0 & 0 \\ sin \theta & cos \theta & 0 & 0 \\ 0 & 0 & 1 & 0 \\ 0 & 0 & 0 & 1\end{matrix}\right]$</li>
+          </ul>
+        </section>
+        <section>
+          <h2>Projection</h2>
+          <ul>
+            <li>Almost all computers display on a two dimensional screen.</li>
+            <li>For 3D graphics, this means we need to project a 3D scene onto a "viewport."</li>
+            <li>The viewport is the "window" in which the scene is rendered to appear from.</li>
+            <li>Usually part (or all) of the monitor being displayed, but can be larger</li>
+            <li>We use projection to turn a three dimensional scene into a two dimensional image that is easy for us to display</li>
+          </ul>
+        </section>
+
+        <section>
+          <h2>Technology Used</h2>
+          <ul>
+            <li>Three.js</li>
+            <li>JQuery</li>
+          </ul> 
       </div>
     </div>
 
@@ -127,8 +158,14 @@
       Reveal.initialize({
         history: true,
 
+        math: {
+          mathjax: 'https://cdn.mathjax.org/mathjax/latest/MathJax.js',
+          config: 'TeX-AMS_HTML-full'  // See http://docs.mathjax.org/en/latest/config-files.html
+        },
+
         // More info https://github.com/hakimel/reveal.js#dependencies
         dependencies: [
+          { src: 'plugin/math/math.js', async: true },
           { src: 'plugin/markdown/marked.js' },
           { src: 'plugin/markdown/markdown.js' },
           { src: 'plugin/notes/notes.js', async: true },
