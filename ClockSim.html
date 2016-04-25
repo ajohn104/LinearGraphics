@@ -28,6 +28,31 @@
     </style>
   </head>
   <body ontouchstart="">
+    <form id="matrix" action="#" role="form">
+      <input type="text" name="field00" size="3" />
+      <input type="text" name="field01" size="3" />
+      <input type="text" name="field02" size="3" />
+      <input type="text" name="field03" size="3" />
+      <br />
+      <input type="text" name="field10" size="3" />
+      <input type="text" name="field11" size="3" />
+      <input type="text" name="field12" size="3" />
+      <input type="text" name="field13" size="3" />
+      <br />
+
+      <input type="text" name="field20" size="3" />
+      <input type="text" name="field21" size="3" />
+      <input type="text" name="field22" size="3" />
+      <input type="text" name="field23" size="3" />
+      <br />
+      <input type="text" name="field30" size="3" />
+      <input type="text" name="field31" size="3" />
+      <input type="text" name="field32" size="3" />
+      <input type="text" name="field33" size="3" />
+
+      <button id="rotate">Rotate</button>
+    </form>
+    <script   src="https://code.jquery.com/jquery-2.2.3.min.js"   integrity="sha256-a23g1Nt4dtEYOj7bR+vTu7+T8VP13humZFBJNIYoEJo="   crossorigin="anonymous"></script>
     <script src="js/three.min.js"></script>
     <script src="js/app.js"></script>
     <script>
@@ -62,7 +87,6 @@
         window.addEventListener( 'resize', function () {
           player.setSize( window.innerWidth, window.innerHeight );
         } );
-
       } );
 
     </script>

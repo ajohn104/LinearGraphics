@@ -63,6 +63,11 @@
                 <li>Came up with 10 problems in computer graphics - most have been solved at least partially by now (but others came up with more!)</li>
               </ul></li>
             <li>1970s: Saw first use in movies (wireframe)</li>
+          </ul>
+        </section>
+        <section>
+          <h2>History of Graphics</h2>
+          <ul>
             <li>1980s: Real time graphics hardware mainstream for 2d games and computer animation</li>
             <li>1990s: First real time 3D graphics hardware and software started appearing. Standardized libraries started appearing (like DirectX and OpenGL). First computer animated feature length film released (Toy Story)</li>
             <li>2000s: 3D graphics hardware and software becomes regularly used. Many innovations improve performance and ease of use.</li>
@@ -84,10 +89,33 @@
           <ul>
             <li>Almost all computers display on a two dimensional screen.</li>
             <li>For 3D graphics, this means we need to project a 3D scene onto a "viewport."</li>
-            <li>The viewport is a 
-
-
+            <li>The viewport is the "window" in which the scene is rendered to appear from.</li>
+            <li>Usually part (or all) of the monitor being displayed, but can be larger</li>
+            <li>We use projection to turn a three dimensional scene into a two dimensional image that is easy for us to display</li>
+          </ul>
         </section>
+
+        <section>
+          <h2>How Does This Relate?</h2>
+          <ul>
+            <li>The scene (and in some cases, the viewport) can utilize transformations to modify the scenes. Examples include:
+              <ul>
+                <li>Scaling</li>
+                <li>Translation</li>
+                <li>Rotation</li>
+              </ul></li>
+        </section>
+
+        <section>
+          <h2>Matrix</h2>
+          <ul>
+            <li>We use a four dimensional matrix
+        </section>
+        <section>
+          <h2>Scaling</h2>
+          <ul>
+            <li>If we want to have a plain scale, we can just multiply the underlying matrix by the scaling factor</li>
+            <li>We can also scale each axis separately.</li>
       </div>
     </div>
 
